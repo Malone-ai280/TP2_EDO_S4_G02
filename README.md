@@ -6,7 +6,7 @@ Ce fichier est un modèle à adapter puis à nommer `README.md` dans votre dép�
 
 | Membre | Identifiant GitHub | Contributions concrètes |
 |---|---|---|
-| BORO Aliou Adama | Malone-ai280 | Programmation de Heun et RK4 dans "TP_02_Outils_EDO.sci" ; Correction d'un oubli de k4 dans RK4 (RK4 donnait 0,846 au lieu de 0,818733, repéré par le controle de Q1) ; calcul à la main de Q1 |
+| BORO Aliou Adama | Malone-ai280 | Programmation de Heun et RK4 dans "TP_02_Outils_EDO.sci" ; Correction d'un oubli de k4 dans RK4 (RK4 donnait 0,846 au lieu de 0,818733, repéré par le controle de Q1) ; calcul à la main de Q1 ; étude de stabilité Q6( facteur R(z), trajectoires pour h=0,2 et h=0,1, fig_stabilite.png) et diagnostic Q7 (Euler sur y'=-10y). |
 | HIEN Désiré| desihien379 | calcul à la main de Q1 ; tests Q1/Q2 pour les trois méthodes dans "TP_02_Application_Etudiant.sce" ; exécution à partir de la version github : tous les contrôles OK |
 | ATCHOLADI Christian | Essozimna11 | Calcul des erreurs de convergence Q3 pour Euler, Heun et RK4 ; figure Q4 en echelles log-log avec les points instables repérés ; comparaison à budget égal Q5  |
 
