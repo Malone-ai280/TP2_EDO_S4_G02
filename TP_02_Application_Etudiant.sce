@@ -108,6 +108,43 @@ for m=1:3
     Eb(m)=max(abs(y-exp(-15*t)));
     mprintf("%s : N=%d, nfev=%d, erreur=%.3e\n",methodes(m),Nb(m),c,Eb(m));
 end
+// --- Q6 : stabilité, y'=-15y ---
+function R=facteur_R(z,nom)
+    select nom
+    case "euler" then
+        R=1+z;
+    case "heun" then
+        R=1+z+z^2/2;
+    case "rk4" then
+        R=1+z+z^2/2+z^3/6+z^4/24;
+    end
+endfunction
+
+hq=[0.2 0.1];
+scf(2); clf();
+for i=1:2
+    Nq=round(1/hq(i));
+    Yq=zeros(Nq+1,3);
+    zq=-15*hq(i);
+    for m=1:3
+        [t,y,c]=integrer_edo(f_decay,0,1,1,Nq,methodes(m));
+        Yq(:,m)=y';
+        R=facteur_R(zq,methodes(m));
+        mprintf("h=%.1f z=%.1f %s : R=%.6f |R|=%.6f ; y(1)=%.4e\n",hq(i),zq,methodes(m),R,abs(R),y($));
+    end
+    subplot(1,2,i);
+    plot2d(t',[exp(-15*t') Yq],style=[1,2,3,5],leg="exacte@Euler@Heun@RK4");
+    xtitle("h = "+string(hq(i)),"t (adimensionne)","y");
+end
+xs2png(gcf(),"fig_stabilite.png");
+// --- Q7 : Euler sur y'=-10y ---
+function z=f_dec10(t,y)
+    z=-10*y;
+endfunction
+for Nq=[4 6 20]
+    [t,y,c]=integrer_edo(f_dec10,0,1,1,Nq,"euler");
+    mprintf("N=%d, h=%.4f, R=%.4f, y(1)=%.4e, erreur max=%.3e\n",Nq,1/Nq,1-10/Nq,y($),max(abs(y-exp(-10*t))));
+end
 // TODO C : trajectoires et erreurs ; exclure NaN/zeros du trace log.
 // CSV final : ajouter diagnostic stable/instable et ordre interpretable.
 // Derniere ligne de chaque methode : p=NaN est normal (pas de suivant).
