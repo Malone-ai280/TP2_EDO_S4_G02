@@ -6,8 +6,8 @@ Ce fichier est un modèle à adapter puis à nommer `README.md` dans votre dép�
 
 | Membre | Identifiant GitHub | Contributions concrètes |
 |---|---|---|
-| BORO Aliou Adam | Malone-ai280 | Programmation de Heun et RK4 dans "TP_02_Outils_EDO.sci" ; Correction d'un oubli de k4 dans RK4 (RK4 donnait 0,846 au lieu de 0,818733, repéré par le controle de Q1) ; calcul à la main que Q1 |
-| À compléter | À compléter | À compléter |
+| BORO Aliou Adama | Malone-ai280 | Programmation de Heun et RK4 dans "TP_02_Outils_EDO.sci" ; Correction d'un oubli de k4 dans RK4 (RK4 donnait 0,846 au lieu de 0,818733, repéré par le controle de Q1) ; calcul à la main de Q1 |
+| HIEN Désiré| desihien379 | calcul à la main de Q1 ; tests Q1/Q2 pour les trois méthodes dans "TP_02_Application_Etudiant.sce" ; exécution à partir de la version github : tous les contrôles OK |
 | À compléter | À compléter | À compléter |
 
 ## Objectif
