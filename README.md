@@ -1,4 +1,4 @@
-# TP2 — EDO — S4 — Groupe [numéro]
+# TP2 — EDO — S4 — Groupe 2
 
 Ce fichier est un modèle à adapter puis à nommer `README.md` dans votre dépôt.
 
@@ -6,7 +6,7 @@ Ce fichier est un modèle à adapter puis à nommer `README.md` dans votre dép�
 
 | Membre | Identifiant GitHub | Contributions concrètes |
 |---|---|---|
-| À compléter | À compléter | À compléter |
+| BORO Aliou Adam | Malone-ai280 | Programmation de Heun et RK4 dans "TP_02_Outils_EDO.sci" ; Correction d'un oubli de k4 dans RK4 (RK4 donnait 0,846 au lieu de 0,818733, repéré par le controle de Q1) ; calcul à la main que Q1 |
 | À compléter | À compléter | À compléter |
 | À compléter | À compléter | À compléter |
 
