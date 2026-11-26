@@ -68,8 +68,8 @@ function z=f_temps(t,y)
 function z=f_decay(t,y)
     z=-15*y;
 endfunction
-Ns=[5 10 20 40 80];
-methodes=["euler"]; // TODO : ajouter "heun" et "rk4" une fois completes.
+Ns=[5 10 20 40 80 160 320];
+methodes=["euler","heun","rk4"]; 
 resultats=[]; // methode_id : 1=euler, 2=heun, 3=rk4 (ordre fixe).
 // Conserver cet ordre en ajoutant les methodes.
 csvWrite([1;2;3],"TP2_methodes.csv",";",".","%d", ..
@@ -78,8 +78,7 @@ for m=1:size(methodes,"*")
     E=zeros(1,size(Ns,"*")); cout=E;
     for j=1:size(Ns,"*")
         [t,y,c]=integrer_edo(f_decay,0,1,1,Ns(j),methodes(m));
-        // TODO A : remplacer %nan par l'erreur maximale aux noeuds.
-        E(j)=%nan;
+        E(j)=max(abs(y-exp(-15*t)));
         cout(j)=c;
     end
     for j=1:size(Ns,"*")
@@ -91,8 +90,24 @@ end
 csvWrite(resultats,"TP2_convergence.csv",";",".","%.12e", ..
     "methode_id;N;h;Emax;nfev;p_vers_ligne_suivante");
 disp(resultats);
+//---- Figure Q4 : erreur en fonction de h (echelles log-log)----
+Nn=size(Ns,"*");
+Hm=matrix(resultats(:,3),Nn,3);
+Em=matrix(resultats(:,4),Nn,3);
+scf(1); clf();
+plot2d(Hm,Em,style=[2,3,5],leg="Euler@Heun@RK4",logflag="ll");
+plot2d(Hm(1,:),Em(1,:),style=-9,logflag="ll");
+xtitle("Convergence sur y''=-15y (ronds:N=5, instable)","h (temps adimensionne)","E_N = erreur max aux noeuds");
+xs2png(gcf(),"fig_convergence.png");
 // Des NaN dans Emax signalent TODO A non termine.
-// TODO B : tableau a budget egal (Euler 400, Heun 200, RK4 100 pas).
+// ---- Q5 : budget egal, 400 evaluations def ----
+Nb=[400 200 100];
+Eb=zeros(1,3);
+for m=1:3
+    [t,y,c]=integrer_edo(f_decay,0,1,1,Nb(m),methodes(m));
+    Eb(m)=max(abs(y-exp(-15*t)));
+    mprintf("%s : N=%d, nfev=%d, erreur=%.3e\n",methodes(m),Nb(m),c,Eb(m));
+end
 // TODO C : trajectoires et erreurs ; exclure NaN/zeros du trace log.
 // CSV final : ajouter diagnostic stable/instable et ordre interpretable.
 // Derniere ligne de chaque methode : p=NaN est normal (pas de suivant).
