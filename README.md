@@ -40,8 +40,28 @@ Expliquer les valeurs NaN légitimes dans les ordres et les diagnostics de stabi
 
 ## Fichiers et résultats
 
-Lister les scripts complétés, CSV et figures, avec leur rôle. Garder les fichiers
-lisibles dans GitHub : une archive seule ne permet pas de relire le code facilement.
+**Scripts**
+
+"TP_02_Outils_EDO.sci" : solveur "intergrer_edo" (Euler fourni ; Heun et RK4 complétés) et fonction ordre_edo
+qui calcul l'ordre observé entre deux erreurs.
+"TP_02_Application_Etudiant.sce" : application complète à lancer : contrôles Q1/Q2, étude de convergence
+(Q3, Q4), comparaison à budget égal (Q5), stabilité (Q6, Q7).
+
+**Données (CSV)**
+
+"TP_methodes.csv" : correspondance des identifiants de méthode (1 = Euler, 2 = Heun, 3 = RK4), fournipar le kit.
+"TP_convergence.csv" : erreur maxiale aux noeuds, coût en évaluations de f et ordre observé, pour chaque méthode et
+chaque N (de 5 à 320)
+
+**Figures**
+
+"fig_convergence.png" : erreur em fonction h, échelles log-log, pour les trois méthodes ; les ronds répèrent le 
+calcul instable (N=5).
+"fig_stabilite.png" : trajectoires numériques et solution exacte pour h=0,2 (instable) et h=0,1 (stable) sur y'=15y.
+
+**Documents**
+
+
 
 ## Synthèse et limites
 
