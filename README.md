@@ -16,48 +16,48 @@ Comparer Euler, Heun et RK4 puis choisir une méthode et un pas pour un modèle 
 
 ## Dépôt
 
-- Lien du dépôt : à compléter.
-- Pour un dépôt privé : vérifier que les membres et l’enseignant ont effectivement accès.
+- Lien du dépôt : https://github.com/Malone-ai280/TP2_EDO_S4_G02/edit/main/README.md
 - Le rapport déposé sur Moodle donne le lien du commit final. Le ZIP remis correspond à ce commit.
 
 ## Environnement et relance
 
-- Version Scilab réellement utilisée : à compléter.
-- Placer les fichiers `.sci` et `.sce` dans le même dossier.
-- Ouvrir ce dossier dans Scilab, puis lancer :
-
-```scilab
-exec("TP_02_Application_Etudiant.sce", -1);
-```
-
-- Le script travaille dans son propre dossier. Décrire ici tout fichier ou dépendance ajouté.
-- Indiquer les sorties réellement produites et leur emplacement.
+- Version Scilab réellement 2025.1.0
+- Placer TP_02_Outils_EDO.sci et TP_02_Application_Etudiant.sce dans le même dossier, puis lancer :exec("TP_02_Application_Etudiant.sce", -1);
+- Le script se place lui-même dans son dossier (chdir) et charge le solveur. Aucune dépendance ajoutée.
+- Sorties écrites dans ce dossier : TP2_methodes.csv, TP2_convergence.csv, TP2_convergence_complet.csv, fig_convergence.png,
+  fig_stabilite.png.
+- Q1, Q2, Q5 et Q7 à Q10 sont affichés dans la console uniquement.
+-Fermer Excel avant de relancer : il verrouille les CSV.
 
 ## Vérifications effectuées
 
-Décrire les résultats des contrôles Q1/Q2, y compris le test dépendant du temps.
-Expliquer les valeurs NaN légitimes dans les ordres et les diagnostics de stabilité.
+- Vérification ( BORO Aliou Adama) : -  Q1 recalculé à la main (0,8 ; 0,82 ; 0,8187333), identique à la console ; Euler N=5 recalculé à la main : y5 = (−2)^5 = −32, donc E = 32, identique au CSV ; ordre Euler entre N=10 et N=20 recalculé (1,70) ; budget égal relancé (nfev = 400 pour les trois méthodes) ; CSV relu dans un éditeur de texte (21 lignes).
+
+- Vérification ( ) :
+
+- Vérification ( ) : 
 
 ## Fichiers et résultats
 
 **Scripts**
 
-"TP_02_Outils_EDO.sci" : solveur "integrer_edo" (Euler fourni ; Heun et RK4 complétés) et fonction ordre_edo
+-"TP_02_Outils_EDO.sci" : solveur "integrer_edo" (Euler fourni ; Heun et RK4 complétés) et fonction ordre_edo
 qui calcul l'ordre observé entre deux erreurs.
-"TP_02_Application_Etudiant.sce" : application complète à lancer : contrôles Q1/Q2, étude de convergence
+-"TP_02_Application_Etudiant.sce" : application complète à lancer : contrôles Q1/Q2, étude de convergence
 (Q3, Q4), comparaison à budget égal (Q5), stabilité (Q6, Q7).
 
 **Données (CSV)**
 
-"TP2_methodes.csv" : correspondance des identifiants de méthode (1 = Euler, 2 = Heun, 3 = RK4), fourni par le kit.
-"TP2_convergence.csv" : erreur maximale aux noeuds, coût en évaluations de f et ordre observé, pour chaque méthode et
+-"TP2_methodes.csv" : correspondance des identifiants de méthode (1 = Euler, 2 = Heun, 3 = RK4), fourni par le kit.
+-"TP2_convergence.csv" : erreur maximale aux noeuds, coût en évaluations de f et ordre observé, pour chaque méthode et
 chaque N (de 5 à 320)
-
+-TP2_convergence_complet.csv : même tableau avec z, |R|, stabilité (stable/instable), ordre interprétable (oui/non) et 
+diagnostic.
 **Figures**
 
-"fig_convergence.png" : erreur en fonction h, échelles log-log, pour les trois méthodes ; les ronds repèrent le 
+-"fig_convergence.png" : erreur en fonction h, échelles log-log, pour les trois méthodes ; les ronds repèrent le 
 calcul instable (N=5).
-"fig_stabilite.png" : trajectoires numériques et solution exacte pour h=0,2 (instable) et h=0,1 (stable) sur y'=-15y.
+-"fig_stabilite.png" : trajectoires numériques et solution exacte pour h=0,2 (instable) et h=0,1 (stable) sur y'=-15y.
 
 **Documents**
 
