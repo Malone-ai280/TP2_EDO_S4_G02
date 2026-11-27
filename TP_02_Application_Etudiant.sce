@@ -11,7 +11,7 @@ endfunction
 if max(abs(y-(2+t)))>1d-12 then error("Test constant echoue"); end
 mprintf("Test constant Euler : OK, cout=%d\n",c);
 
-//---- Controle Q1 / Q2 : Euler, Heun, RK$ ----
+//---- Controle Q1 / Q2 : Euler, Heun, RK4 ----
 methodes_test=["euler"  "heun" "rk4"];
 couts_test=[1 2 4];  //evaluations de f par pas
 
