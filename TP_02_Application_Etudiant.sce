@@ -158,6 +158,11 @@ function theta=theta_ref(t,Hval)
     eq=Ta+P/Hval;
     theta=eq+(theta0-eq)*exp(-Hval*t/Cth);
 endfunction
+// ---- Q8 : valeurs de reference (comparaison avec le calcul a la main) ----
+mprintf("theta_inf = %.4f degC ; tau = %.1f s\n" , Ta+P/H, Cth/H);
+mprintf("theta_ref(100) = %.4f\n" , theta_ref(100,H));
+mprintf("theta_ref(250) = %.4f\n" , theta_ref(250,H));
+mprintf("theta_ref(1000) = %.5f\n" , theta_ref(1000,H));
 // ---- Q9 : choix du pas, horizon 1000 s ----
 Nt=[100 10 4];
 for i=1:3
