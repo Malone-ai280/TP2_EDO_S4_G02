@@ -33,7 +33,7 @@ Comparer Euler, Heun et RK4 puis choisir une méthode et un pas pour un modèle 
 
 - Vérification ( BORO Aliou Adama) : -  Q1 recalculé à la main (0,8 ; 0,82 ; 0,8187333), identique à la console ; Euler N=5 recalculé à la main : y5 = (−2)^5 = −32, donc E = 32, identique au CSV ; ordre Euler entre N=10 et N=20 recalculé (1,70) ; budget égal relancé (nfev = 400 pour les trois méthodes) ; CSV relu dans un éditeur de texte (21 lignes).
 
-- Vérification ( ) :
+- Vérification (HIEN Désiré ) : Q1 recalculé à la main ; tests Q1/Q2 lancés depuis la version GitHub : tous les contrôles OK ; Q9 : stabilité prédite avec z = −H·h/C_th, cohérente avec les erreurs affichées (h = 250 s : instable pour Euler et Heun).
 
 - Vérification ( ) : 
 
