@@ -145,10 +145,45 @@ for Nq=[4 6 20]
     [t,y,c]=integrer_edo(f_dec10,0,1,1,Nq,"euler");
     mprintf("N=%d, h=%.4f, R=%.4f, y(1)=%.4e, erreur max=%.3e\n",Nq,1/Nq,1-10/Nq,y($),max(abs(y-exp(-10*t))));
 end
-// TODO C : trajectoires et erreurs ; exclure NaN/zeros du trace log.
-// CSV final : ajouter diagnostic stable/instable et ordre interpretable.
-// Derniere ligne de chaque methode : p=NaN est normal (pas de suivant).
 
+// ---- CSV final : diagnostic stable/instable et ordre interpretable ----
+noms=["Euler","Heun","RK4"];
+fd=mopen("TP2_convergence_complet.csv","wt");
+mfprintf(fd,"methode;methode_id;N;h;z;modR;Emax;nfev;p_vers_ligne_suivante;stabilite;ordre_interpretable;diagnostic\n");
+nl=size(resultats,"r");
+for k=1:nl
+    m=resultats(k,1);
+    hk=resultats(k,3); Ek=resultats(k,4); pk=resultats(k,6);
+    zk=-15*hk;
+    mR=abs(facteur_R(zk,methodes(m)));
+    if mR>1+1d-12 then
+        stab="instable";
+    elseif mR>=1-1d-12 then
+        stab="limite";
+    else
+        stab="stable";
+    end
+    interpr="non";
+    if k==nl then
+        dg="derniere ligne : pas de ligne suivante (p=NaN normal)";
+    elseif resultats(k+1,1)<>m then  dg="derniere ligne : pas de ligne suivante (p=NaN normal)";
+    elseif mR>=1-1d-12 then
+        dg="ligne courante non strictement amortie : ordre non interpretable";
+    else
+        mR2=abs(facteur_R(-15*resultats(k+1,3),methodes(m)));
+        if mR2>=1-1d-12 then
+            dg="ligne suivante non stable";
+        elseif Ek<1d-13 | resultats(k+1,4)<1d-13 then
+            dg="erreur dominee par l''arrondi";
+        else
+            interpr="oui";
+            dg="deux regimes stables, erreurs au-dessus de l''arrondi";
+        end
+    end
+    mfprintf(fd,"%s;%d;%d;%.12e;%.6f;%.12e;%.12e;%d;%.12e;%s;%s;%s\n", ..
+        noms(m),m,resultats(k,2),hk,zk,mR,Ek,resultats(k,5),pk,stab,interpr,dg);
+end
+mclose(fd);
 // Application thermique : un modele pedagogique, pas des mesures.
 Cth=1000; H=10; P=100; Ta=20; theta0=20;
 function z=f_therm(t,theta)
