@@ -7,7 +7,7 @@ Ce fichier est un modèle à adapter puis à nommer `README.md` dans votre dép�
 | Membre | Identifiant GitHub | Contributions concrètes |
 |---|---|---|
 | BORO Aliou Adama | Malone-ai280 | Programmation de Heun et RK4 dans "TP_02_Outils_EDO.sci" ; Correction d'un oubli de k4 dans RK4 (RK4 donnait 0,846 au lieu de 0,818733, repéré par le controle de Q1) ; calcul à la main de Q1 ; étude de stabilité Q6( facteur R(z), trajectoires pour h=0,2 et h=0,1, fig_stabilite.png) et diagnostic Q7 (Euler sur y'=-10y) ; Euler N=5 recalculé à la main (y indice 5 = (-2)^5 = -32, donc E indice 5 = 32) ; ordre Euler entre N=10 et N=20 recalculé (1,70) ; budget égal relancé (nfev = 400, RK4 le plus précis) ; export CSV de la convergence (TP2_convergence.csv)  |
-| HIEN Désiré| desihien379 | calcul à la main de Q1 ; tests Q1/Q2 pour les trois méthodes dans "TP_02_Application_Etudiant.sce" ; exécution à partir de la version github : tous les contrôles OK ; Q9 : erreurs et couts pour N= 100, 10, 4 avec les trois méthodes; stabilité prédite avec z=-H.h/C_th; choix RK4 N=10(0,0712°C, 40 évaluations) ; Q10 : étude de la sensibilité du paramètre H à temps d'observation fixes|
+| HIEN Désiré| desihien379 | Calcul à la main de Q1 ; tests Q1/Q2 pour les trois méthodes dans "TP_02_Application_Etudiant.sce" ; exécution à partir de la version github : tous les contrôles OK ; Q9 : erreurs et couts pour N= 100, 10, 4 avec les trois méthodes; stabilité prédite avec z=-H.h/C_th; choix RK4 N=10(0,0712°C, 40 évaluations) ; Q10 : étude de la sensibilité du paramètre H à temps d'observation fixes|
 | ATCHOLADI Christian | Essozimna11 | Calcul des erreurs de convergence Q3 pour Euler, Heun et RK4 ; figure Q4 en echelles log-log avec les points instables repérés ; comparaison à budget égal Q5 ; facteurs R(z) de Q6 et Q7 recalculés à la main (h = 0,2 : -2, 2,5, 1,375 ; h = 0,25 : R = -1,5), identiques à la console ; figure de stabilité cohérente avec les signes prédits ; le calcul à la main de Q8 est confirmé par les lignes de code du commentaire de Q8|
 
 ## Objectif
@@ -69,6 +69,8 @@ Résumer les méthodes comparées, le choix thermique et les limites. Renvoi au 
 de trois pages maximum déposé sur Moodle.
 
 ## Sources et aides
+- Énoncé et kit du TP02 (EDO : Euler, Heun, RK4), MN2 S4, 2iE, Dr Babacar LEYE. Code fourni par le kit : structure des fichiers, solveur Euler dans integrer_edo, fonction ordre_edo.
+- Nos ajouts : Heun et RK4, tests Q1/Q2, études Q3 à Q10, exports CSV, figures, README.
+- Documentation de Scilab (aide intégrée) pour les fonctions de tracé et d'écriture de fichiers.
+- Usage de l'IA : nous avons utilisé Claude pour comprendre le TP et la démarche GitHub, aider à corriger le code Scilab.
 
-Citer les documents utilisés et l’usage éventuel de l’IA. Distinguer le code fourni
-dans le kit et vos propres ajouts. Ne pas publier de mots de passe ou de documents du cours.
