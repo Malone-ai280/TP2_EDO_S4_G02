@@ -158,8 +158,22 @@ function theta=theta_ref(t,Hval)
     eq=Ta+P/Hval;
     theta=eq+(theta0-eq)*exp(-Hval*t/Cth);
 endfunction
-// TODO D : horizon 1000 s, N=100,10,4 ; comparer les trois methodes.
-// TODO E : reference H=8,10,12 W/K a temps fixes ; interpreter les ecarts.
+// ---- Q9 : choix du pas, horizon 1000 s ----
+Nt=[100 10 4];
+for i=1:3
+    for m=1:3
+        [t,y,c]=integrer_edo(f_therm,0,1000,theta0,Nt(i),methodes(m));
+        Et=max(abs(y-theta_ref(t,H)));
+        zt=-H*(1000/Nt(i))/Cth;
+        mprintf("%s N=%d h=%g s z=%g : Emax=%.4e degC, nfev=%d\n",methodes(m),Nt(i),1000/Nt(i),zt,Et,c);
+    end
+end
+// ---- Q10 : sensibilite a H, temps fixes ----
+Tf=[0 100 500 1000];
+for Hv=[8 12]
+    ecart=theta_ref(Tf,Hv)-theta_ref(Tf,10);
+    mprintf("H=%d : ecarts signes = %s ; max |ecart| = %.4f degC\n",Hv, strcat(string(ecart)," "),max(abs(ecart)));
+end
 // Conseils graphiques dans l'interface Scilab :
 // plot2d(h,E,logflag="ll") pour un tableau d'erreurs positives.
 // Ajouter titres, legendes, unites et identifier les calculs instables.
