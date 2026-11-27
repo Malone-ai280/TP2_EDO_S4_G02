@@ -1,0 +1,22 @@
+methode;methode_id;N;h;z;modR;Emax;nfev;p_vers_ligne_suivante;stabilite;ordre_interpretable;diagnostic
+Euler;1;5;2.000000000000e-01;-3.000000;2.000000000000e+00;3.200000030590e+01;5;5.467672759566e+00;instable;non;ligne courante non strictement amortie : ordre non interpretable
+Euler;1;10;1.000000000000e-01;-1.500000;5.000000000000e-01;7.231301601484e-01;10;1.701315547668e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+Euler;1;20;5.000000000000e-02;-0.750000;2.500000000000e-01;2.223665527410e-01;20;1.443798247658e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+Euler;1;40;2.500000000000e-02;-0.375000;6.250000000000e-01;8.174155274101e-02;40;1.123677901104e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+Euler;1;80;1.250000000000e-02;-0.187500;8.125000000000e-01;3.751302871537e-02;80;1.064007526350e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+Euler;1;160;6.250000000000e-03;-0.093750;9.062500000000e-01;1.794254104781e-02;160;1.028595745125e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+Euler;1;320;3.125000000000e-03;-0.046875;9.531250000000e-01;8.795201136938e-03;320;Nan;stable;non;derniere ligne : pas de ligne suivante (p=NaN normal)
+Heun;2;5;2.000000000000e-01;-3.000000;2.500000000000e+00;9.765624969410e+01;10;7.924840256951e+00;instable;non;ligne courante non strictement amortie : ordre non interpretable
+Heun;2;10;1.000000000000e-01;-1.500000;6.250000000000e-01;4.018698398516e-01;20;2.765586097508e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+Heun;2;20;5.000000000000e-02;-0.750000;5.312500000000e-01;5.909640235157e-02;40;2.361066757178e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+Heun;2;40;2.500000000000e-02;-0.375000;6.953125000000e-01;1.150294722295e-02;80;2.211349762452e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+Heun;2;80;1.250000000000e-02;-0.187500;8.300781250000e-01;2.483856592001e-03;160;2.102481197641e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+Heun;2;160;6.250000000000e-03;-0.093750;9.106445312500e-01;5.783844548575e-04;320;2.051191341733e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+Heun;2;320;3.125000000000e-03;-0.046875;9.542236328125e-01;1.395553503210e-04;640;Nan;stable;non;derniere ligne : pas de ligne suivante (p=NaN normal)
+RK4;3;5;2.000000000000e-01;-3.000000;1.375000000000e+00;4.914886168707e+00;20;6.610245288267e+00;instable;non;ligne courante non strictement amortie : ordre non interpretable
+RK4;3;10;1.000000000000e-01;-1.500000;2.734375000000e-01;5.030733985157e-02;40;4.841603331462e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+RK4;3;20;5.000000000000e-02;-0.750000;4.741210937500e-01;1.754541008985e-03;80;4.412521347850e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+RK4;3;40;2.500000000000e-02;-0.375000;6.873474121094e-01;8.238767388319e-05;160;4.219539050863e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+RK4;3;80;1.250000000000e-02;-0.187500;8.290309906006e-01;4.422363318157e-06;320;4.110838558861e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+RK4;3;160;6.250000000000e-03;-0.093750;9.105104207993e-01;2.559579985184e-07;640;4.055937336467e+00;stable;oui;deux regimes stables, erreurs au-dessus de l'arrondi
+RK4;3;320;3.125000000000e-03;-0.046875;9.542066678405e-01;1.538898253273e-08;1280;Nan;stable;non;derniere ligne : pas de ligne suivante (p=NaN normal)
