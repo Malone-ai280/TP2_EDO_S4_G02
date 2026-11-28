@@ -64,9 +64,14 @@ calcul instable (N=5).
 
 
 ## Synthèse et limites
+Trois méthodes explicites à un pas ont été comparées : Euler (ordre 1), Heun (ordre 2) et RK4 (ordre 4), pour 1, 2 et 4 évaluations de f par pas. Sur y' = −15y, l'ordre observé tend vers 1,03 ; 2,05 et 4,06 quand N augmente. À budget égal de 400 évaluations, RK4 est la plus précise (1,8e-06, contre 3,6e-04 pour Heun et 7,0e-03 pour Euler).
 
-Résumer les méthodes comparées, le choix thermique et les limites. Renvoi au rapport
-de trois pages maximum déposé sur Moodle.
+Pour h = 0,2 (z = −3), les trois méthodes sont instables (|R| > 1). Elles ne donnent pas un ordre interprétable.
+
+Modèle thermique : choix de RK4 avec N = 10 (h = 100 s), erreur max 0,0712 °C pour 40 évaluations. Pour h = 250 s, Euler et Heun divergent. Une variation de H de ±20 % déplace la température à t = 1000 s de 2,50 °C (H = 8) et de 1,67 °C (H = 12).
+
+Limites : l'étude porte sur des équations linéaires (y' = −λy et le modèle thermique) ; l'ordre est mesuré sur un seul problème ; le modèle thermique est pédagogique, sans mesures réelles ; les résultats de Q1, Q2, Q5 et Q7 à Q10 sont affichés dans la console, pas enregistrés dans des fichiers. Détails dans le rapport.
+
 
 ## Sources et aides
 - Énoncé et kit du TP02 (EDO : Euler, Heun, RK4), MN2 S4, 2iE, Dr Babacar LEYE. Code fourni par le kit : structure des fichiers, solveur Euler dans integrer_edo, fonction ordre_edo.
